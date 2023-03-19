@@ -55,12 +55,14 @@ export default function Psychologist()
         async function getPsychologys()
         {
             try{
-                const response = await fetch(`${process.env.REACT_APP_API}/api/psycho/all`,{
+                const response = await fetch(`${process.env.REACT_APP_API}/api/privateSchool/psycho/all`,{
                     headers:{
                         "Authorization":token
                     }
                 })
                 const data = await response.json()
+                console.log(data);
+
                 setPsychologys(data.psychos)
             }
             catch(err)

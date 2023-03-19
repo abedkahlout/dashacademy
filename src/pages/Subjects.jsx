@@ -86,7 +86,7 @@ const Courses = () => {
       .then((res) => res.json())
       .then((data) => setSections(data.sections));
 
-    fetch(`${process.env.REACT_APP_API}/api/subject/all`,{
+    fetch(`${process.env.REACT_APP_API}/api/privateSchool/subject/all`,{
       headers:{
         "Authorization":token
     }

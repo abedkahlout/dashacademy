@@ -24,7 +24,7 @@ export default function AddGroup({setOpenAdd}) {
         .then((res) => res.json())
         .then((data) => setTeachers(data.teachers));
     
-        fetch(`${process.env.REACT_APP_API}/api/subject/all`,{
+        fetch(`${process.env.REACT_APP_API}/api/privateSchool/subject/all`,{
             headers:{
             "Authorization":token
         }
@@ -32,7 +32,7 @@ export default function AddGroup({setOpenAdd}) {
         .then((res) => res.json())
         .then((data) => setSubjects(data.subjects));
     
-        fetch(`${process.env.REACT_APP_API}/api/course/all`,
+        fetch(`${process.env.REACT_APP_API}/api/privateSchool/course/all`,
         {
         headers:{
             "Authorization":token

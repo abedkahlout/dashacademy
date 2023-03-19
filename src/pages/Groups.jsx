@@ -4,6 +4,7 @@ import { useState } from 'react';
 import AddGroup from '../components/AddGroup';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 const columns = [
     { id: "code", label: "اسم المجموعة", minWidth: 100, align: "center" },
@@ -39,6 +40,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 export default function Groups()
 {
+    const {token} = useSelector((state)=>state.admin)
+
     const navigate = useNavigate()
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -59,9 +62,14 @@ export default function Groups()
         async function getGroups()
         {
             try{
-                const response = await fetch(`${process.env.REACT_APP_API}/api/group/all`)
+                const response = await fetch(`${process.env.REACT_APP_API}/api/privateSchool/group/all`,{
+                    headers:{
+                      "Authorization":token
+                  },
+                  })
                 const data = await response.json()
-                setGroups(data.groupes)
+                console.log(data);
+                setGroups(data.groups)
             }
             catch(err)
             {

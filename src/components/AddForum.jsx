@@ -16,7 +16,7 @@ export default function AddForum({setOpenAdd}) {
     const [load,setLoad] = useState(false)
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API}/api/teacher/all`,{
+        fetch(`${process.env.REACT_APP_API}/api/privateSchool/teacher/all`,{
             headers:{
             "Authorization":token
         },
@@ -24,7 +24,7 @@ export default function AddForum({setOpenAdd}) {
         .then((res) => res.json())
         .then((data) => setTeachers(data.teachers));
     
-        fetch(`${process.env.REACT_APP_API}/api/subject/all`,{
+        fetch(`${process.env.REACT_APP_API}/api/privateSchool/subject/all`,{
             headers:{
             "Authorization":token
         }
